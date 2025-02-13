@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Volta</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="Estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body id="body">
+    <div class="titulo">
+        <h1 id="titulo">SIMULADOR DE CONSUMO <img src="volta.png" alt="Logo Volta"></h1>
+    </div>
+
+    <div class="alert alert-info text-center mt-3 mx-5">
+        Ingresa los datos para cada equipo y presiona "AGREGAR" en cada entrada
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card" id="formulario">
+                    <div class="card-body">
+                        <form id="f">
+                            <!-- Categoría -->
+                            <div class="mb-3 row">
+                                <label for="categoria" class="col-sm-4 col-form-label">Categoría</label>
+                                <div class="col-sm-6 input-container">
+                                    <select class="form-select" name="categoria" id="categoria" onchange="cambiarOpciones(); actualizartiempo();">
+                                        <option selected>Seleccionar</option>
+                                        <option value="Tv y Entretenimiento">Tv y Entretenimiento</option>
+                                        <option value="Telefonia e Internet">Telefonia e Internet</option>
+                                        <option value="Neveras y Congeladores">Neveras y Congeladores</option>
+                                        <option value="Iluminacion">Iluminacion</option>
+                                        <option value="Herramientas">Herramientas</option>
+                                        <option value="Electrobombas">Electrobombas</option>
+                                        <option value="Computacion">Computacion</option>
+                                        <option value="Cocina y Hogar">Cocina y Hogar</option>
+                                        <option value="Otros">Otros</option>
+                                    </select>
+                                    <i class="fas fa-question-circle" data-toggle="tooltip" title="Selecciona el tipo de equipo o electrodoméstico, según las categorías de la lista."></i>
+                                </div>
+                            </div>
+
+                            <!-- Equipo -->
+                            <div class="mb-3 row">
+                                <label for="equipo" class="col-sm-4 col-form-label">Equipo</label>
+                                <div class="col-sm-6 input-container">
+                                    <select class="form-select" id="equipo" name="equipo" onchange="actualizarPotencia(); actualizartiempo(); habilitarInput()">
+                                    </select>
+                                    <i class="fas fa-question-circle" data-toggle="tooltip" title="Cuando tengas la categoría selecciona el equipo. Sólo puedes seleccionar un equipo por cada entrada"></i>
+                                </div>
+                            </div>
+
+                            <!-- Potencia Pico -->
+                            <div class="mb-3 row">
+                                <label for="pico" class="col-sm-4 col-form-label">Potencia Pico</label>
+                                <div class="col-sm-6 input-container">
+                                    <input type="number" class="form-control" name="pico" id="pico" value="">
+                                    <i class="fas fa-question-circle" data-toggle="tooltip" title="Los aparatos que tiene motor cómo las neveras, lavadora, etc, tienen una potencia de arranque superior a la potencia nominal. El valor sugerido puede ser modificado. Si aparece en cero es porque no tiene potencia pico."></i>
+                                </div>
+                            </div>
+
+                            <!-- Potencia -->
+                            <div class="mb-3 row">
+                                <label for="potencia" class="col-sm-4 col-form-label">Potencia (W)</label>
+                                <div class="col-sm-6 input-container">
+                                    <input type="number" class="form-control" name="potencia" id="potencia" value="potencia">
+                                    <i class="fas fa-question-circle" data-toggle="tooltip" title="Es la potencia nominal sugerida para el equipo seleccionado, el valor sugerido puede ser modificado si se conoce la potencia exacta del equipo."></i>
+                                </div>
+                            </div>
+
+                            <!-- Cantidad -->
+                            <div class="mb-3 row">
+                                <label for="cantidad" class="col-sm-4 col-form-label">Cantidad</label>
+                                <div class="col-sm-6 input-container">
+                                    <input type="number" class="form-control" value="1" name="cantidad" id="cantidad">
+                                    <i class="fas fa-question-circle" data-toggle="tooltip" title="Ingresa el número de equipos iguales que serán conectados al sistema, por ejemplo, Bombillos: 4"></i>
+                                </div>
+                            </div>
+
+                            <!-- Tiempo de uso -->
+                            <div class="mb-3 row">
+                                <label for="tiempo" class="col-sm-4 col-form-label">Tiempo de uso (h)</label>
+                                <div class="col-sm-6 input-container">
+                                    <input type="number" class="form-control" name="tiempo" id="tiempo" min="1" max="24">
+                                    <i class="fas fa-question-circle" data-toggle="tooltip" title="Ingresa la cantidad de horas que se usará ese equipo durante un día. Por ejemplo, Bombillos: 10 horas"></i>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <!-- Botones movidos fuera del formulario pero dentro del card-body -->
+                        <div class="botones mt-4">
+                            <div class="separar">
+                                <button type="button" class="boton4" onclick="agregarEquipo()">Agregar</button>
+                                <button type="button" class="boton4 borrar" onclick="borrarTodo()">BORRAR TODO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel derecho con resultados -->
+            <div class="col-sm-6">
+                <ol class='list-group list-group' id='lista'>
+                    <li class='list-group-item d-flex justify-content-between align-items-start'>
+                        <div class='ms-2 me-auto'>
+                            <h2 style='color:#090030'>EQUIPOS SELECCIONADOS</h2>
+                            <table border='0' id='tabla'>
+                                <thead>
+                                    <tr>
+                                        <th>Equipos Seleccionados</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaCuerpo">
+                                </tbody>
+                            </table> 
+                        </div>
+                    </li>
+                </ol>
+
+                <div class='card' id='resultado'>
+                    <div class='card-body'>
+                        <h3 class='card-title' id='w'>Potencia Total: <span id="potenciaTotal">0</span> W</h3>
+                    </div>
+                </div>
+
+                <div class='card' id='resultadoc'>
+                    <div class='card-body'>
+                        <h3 class='card-title' id='w'>Consumo Total: <span id="consumoTotal">0</span> Wh/día</h3>
+                    </div>
+                </div>
+
+                <h1 id="inversor">0</h1>
+                <div id="resultadoc"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="prt">
+        <p id="produccion">0</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="calcularModal" tabindex="-1" role="dialog" aria-labelledby="calcularModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calcularModalLabel">Calcular Precio</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>El precio aproximado es: <span id="sumaValores">0</span></h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        // Función para borrar todo
+        function borrarTodo() {
+            localStorage.removeItem('equipos');
+            document.getElementById('tablaCuerpo').innerHTML = '';
+            document.getElementById('potenciaTotal').textContent = '0';
+            document.getElementById('consumoTotal').textContent = '0';
+            document.getElementById('f').reset();
+        }
+    </script>
+<script>
+    // Funcion para calcular la producción basada en el consumo
+    function calcularProduccion(consumo) {
+        let produccion = 0;
+
+        if (consumo >= 0 && consumo < 350) {
+            produccion = 525000;
+        } else if (consumo >= 350 && consumo < 750) {
+            produccion = 1125000;
+        } else if (consumo >= 750 && consumo < 1000) {
+            produccion = 1500000;
+        } else if (consumo >= 1000 && consumo < 1500) {
+            produccion = 2250000;
+        } else if (consumo >= 1500 && consumo < 2000) {
+            produccion = 3000000;
+        } else if (consumo >= 2000 && consumo < 2500) {
+            produccion = 3750000;
+        } else if (consumo >= 2500 && consumo < 3000) {
+            produccion = 4500000;
+        } else if (consumo >= 3000 && consumo < 3500) {
+            produccion = 5250000;
+        } else if (consumo >= 3500 && consumo < 4000) {
+            produccion = 6000000;
+        } else if (consumo >= 4000 && consumo < 4500) {
+            produccion = 6750000;
+        } else if (consumo >= 4500 && consumo < 5000) {
+            produccion = 7500000;
+        } else if (consumo >= 5000 && consumo < 5500) {
+            produccion = 8250000;
+        } else if (consumo >= 5500 && consumo < 6000) {
+            produccion = 9000000;
+        } else if (consumo >= 6000 && consumo < 6500) {
+            produccion = 9750000;
+        } else if (consumo >= 6500 && consumo < 7000) {
+            produccion = 10500000;
+        } else if (consumo >= 7000 && consumo < 7500) {
+            produccion = 11250000;
+        } else if (consumo >= 7500 && consumo <= 8000) {
+            produccion = 12000000;
+        }
+
+        return produccion;
+    }
+    function calcularSuma() {
+    // Obtener los valores de producción e inversor como números enteros
+    const produccion = parseInt(document.getElementById('produccion').innerText.replace(/\D/g, ''));
+    const inversor = parseInt(document.getElementById('inversor').innerText.replace(/\D/g, ''));
+
+    const suma = produccion + inversor;
+
+    // Mostrar la suma en el modal con separadores de miles
+    document.getElementById('sumaValores').innerText = suma.toLocaleString();
+}
+
+
+    // Función para actualizar la producción en la página
+    function actualizarProduccion() {
+        const consumoTotalElement = document.getElementById('consumoTotal');
+        const produccionElement = document.getElementById('produccion');
+
+        const consumoTotal = parseFloat(consumoTotalElement.innerText);
+
+        const produccion = calcularProduccion(consumoTotal);
+
+        produccionElement.innerText = produccion.toLocaleString();
+    }
+
+    // Observer to watch for changes in the consumoTotal element
+    const consumoTotalElement = document.getElementById('consumoTotal');
+    const observer = new MutationObserver(() => {
+        actualizarProduccion();
+    });
+
+    observer.observe(consumoTotalElement, { childList: true, subtree: true });
+
+    // JavaScript para manejar la eliminación de equipos y actualizar el consumo total
+    document.addEventListener('DOMContentLoaded', function() {
+        function actualizarConsumoYProduccion() {
+            const filas = document.querySelectorAll('#tablaCuerpo tr');
+
+            let nuevoConsumoTotal = 0;
+
+            filas.forEach(fila => {
+                const potencia = parseFloat(fila.querySelector('td:nth-child(2)').innerText);
+                const tiempo = parseFloat(fila.querySelector('td:nth-child(3)').innerText);
+                nuevoConsumoTotal += potencia * tiempo;
+            });
+
+            consumoTotalElement.innerText = nuevoConsumoTotal.toFixed(2);
+        }
+
+        var botonesEliminar = document.querySelectorAll('.eliminar-equipo');
+
+        botonesEliminar.forEach(function(boton) {
+            boton.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                var fila = this.closest('tr');
+                fila.remove();
+
+                actualizarConsumoYProduccion();
+            });
+        });
+
+        document.getElementById('calcular').addEventListener('click', calcularSuma);
+    });
+</script>
+</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Incluye tus funciones JavaScript aquí o enlázalas como archivos externos según sea necesario
+        <?php include 'scripts.js'; ?>
+        
+        // Llama a la función cambiarOpciones() para que se ejecute al cargar la página
+        cambiarOpciones();
+    </script>
+
+        <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const equipoDeseado = ""; // Cambia el equipo aquí
+
+    const textoEquipo = document.getElementById('equipo-dinamico');
+    textoEquipo.textContent = equipoDeseado;
+
+    const textoAnimado = document.querySelector('.texto-anima');
+    textoAnimado.style.display = 'block';
+});
+
+
+
+</script>
+     <script>
+        // JavaScript para manejar la eliminación de equipos y actualizar el consumo total
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleccionar todos los botones de eliminar
+            var botonesEliminar = document.querySelectorAll('.eliminar-equipo');
+
+            // Agregar un event listener a cada botón
+            botonesEliminar.forEach(function(boton) {
+                boton.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    // Obtener la fila a la que pertenece el botón
+                    var fila = this.closest('tr');
+
+                    // Obtener la potencia total del equipo a eliminar desde la primera celda de la fila
+                    var potenciaTotalEliminarStr = fila.querySelector('td:nth-child(1)').textContent.trim();
+                    var potenciaTotalEliminar = parseFloat(potenciaTotalEliminarStr.split(':')[1].trim());
+
+                    // Validar si se pudo convertir a número correctamente
+                    if (isNaN(potenciaTotalEliminar)) {
+                        alert('Error al obtener la potencia total del equipo.');
+                        return;
+                    }
+
+                    // Eliminar la fila específica del DOM
+                    fila.remove();
+
+                    // Actualizar el Consumo Total sin recargar la página
+                    var consumoTotalElemento = document.getElementById('consumoTotal');
+                    var consumoTotalActual = parseFloat(consumoTotalElemento.textContent.trim());
+
+                    // Validar si se pudo convertir a número correctamente
+                    if (isNaN(consumoTotalActual)) {
+                        consumoTotalActual = 0;
+                    }
+
+                    var nuevoConsumoTotal = consumoTotalActual - potenciaTotalEliminar;
+                    consumoTotalElemento.textContent = nuevoConsumoTotal.toFixed(2); // Mostrar dos decimales
+                });
+            });
+        });
+    </script>
+</body>
+<footer>
+        <p>&copy; 2025 Volta. Todos los derechos reservados.</p>
+    </footer>
+</html>
