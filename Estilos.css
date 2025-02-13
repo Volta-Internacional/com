@@ -1,304 +1,345 @@
 #calcular {
-  text-align: center;
+    text-align: center;
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 footer a {
-  color: #1e90ff;
-  text-decoration: none;
+    color: #1e90ff;
+    text-decoration: none;
 }
 
 footer a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-/* Estilo actualizado para los iconos de interrogación */
+/* Estilo para los iconos de interrogación */
 .fa-question-circle {
-  color: #090030;
-  cursor: help;
-  font-size: 16px;
-  margin-left: 8px; /* Espacio entre el input y el icono */
-  flex-shrink: 0; /* Evita que el icono se encoja */
+    color: #090030;
+    cursor: help;
+    font-size: 16px;
+    margin-left: 8px;
+    flex-shrink: 0;
 }
 
 /* Contenedor para input y su icono */
 .input-container {
-  position: relative;
-  display: flex;
-  align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-/* Estilos para el mensaje de instrucción */
+/* Mensaje de instrucción */
 .alert-info {
-  background-color: #f8f9fa;
-  border: 1px solid #090030;
-  color: #090030;
-  margin: 20px auto;
-  max-width: 90%;
+    background-color: #f8f9fa;
+    border: 1px solid #090030;
+    color: #090030;
+    margin: 20px auto;
+    max-width: 90%;
 }
 
 #sumaValores {
-  font-size: 140%;
+    font-size: 140%;
 }
 
 .prt {
-  font-size: 1px;
+    font-size: 1px;
 }
 
 #inversor {
-  font-size: 1px;
+    font-size: 1px;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .texto-anima {
-  text-align: center;
-  background-color: #090030;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: none;
-  white-space: nowrap;
-  overflow: hidden;
+    text-align: center;
+    background-color: #090030;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .texto, .texto-dinamico {
-  font-size: 250%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #fff;
-  text-align: center;
+    font-size: 250%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #fff;
+    text-align: center;
 }
 
 #equipo-dinamico {
-  display: inline-block;
-  animation: slide-in 3s ease-out forwards;
+    display: inline-block;
+    animation: slide-in 3s ease-out forwards;
 }
 
 @keyframes slide-in {
-  from {
-      width: 0;
-  }
-  to {
-      width: 100px;
-  }
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
 }
 
 .contenedor {
-  text-align: center;
+    text-align: center;
 }
 
 .potencia-pico {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
 }
 
 .potencia-pico-verde {
-  background-color: green;
+    background-color: green;
 }
 
 .potencia-pico-rojo {
-  background-color: red;
+    background-color: red;
 }
 
 .kitss {
-  margin-bottom: 20%;
+    margin-bottom: 20%;
 }
 
 #recomendado {
-  font-size: 200%;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
+    font-size: 200%;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
 }
 
 .position-absolute-top-end {
-  position: absolute;
-  top: 0;
-  right: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #mostrarCard {
-  text-align: center;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 0.5em 1.2em;
-  background: #090030;
-  border-radius: 20px;
-  border: none;
-  border-color: #cfcdcc;
-  position: relative;
+    text-align: center;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: #090030;
+    border-radius: 20px;
+    border: none;
+    border-color: #cfcdcc;
+    position: relative;
 }
 
 #mostrarCard:hover {
-  color: rgba(255, 255, 255, 1) !important;
-  box-shadow: 0 4px 16px #090030;
-  transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px #090030;
+    transition: all 0.2s ease;
 }
 
 #kits {
-  margin: 0 auto;
-  border-radius: 20px;
-  box-shadow: 5px 5px 20px rgb(95, 95, 95);
-  width: 400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgb(95, 95, 95);
+    width: 400px;
 }
 
 #body {
-  background-color: #edeff1;
-  justify-content: center;
-  align-items: center;
+    background-color: #edeff1;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Título y logo */
 #titulo {
-  font-size: 200%;
-  text-align: center;
-  margin-top: 4%;
+    font-size: 200%;
+    text-align: center;
+    margin-top: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 #titulo img {
-  height: 80px;
-  margin-left: 45px;
-  text-align: center;
+    height: 80px;
+    display: block;
 }
 
-/* Estilos actualizados para los botones y su contenedor */
+@media (max-width: 768px) {
+    #titulo {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #titulo img {
+        margin: 15px auto;
+    }
+}
+
+/* Botones */
 .botones {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .separar {
-  display: flex;
-  justify-content: center;
-  gap: 30px; /* Aumenta la separación entre botones */
-  padding: 3%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 3%;
 }
 
 .titulo {
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration: wavy;
-  color: #383333;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: wavy;
+    color: #383333;
 }
 
 #consumo {
-  border: none;
+    border: none;
 }
 
+/* Cards y contenedores */
 #formulario {
-  border-radius: 20px;
-  box-shadow: 5px 5px 20px rgb(109, 109, 109);
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-top: 10%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgb(109, 109, 109);
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 10%;
 }
 
 #resultado {
-  border: none;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-top: 5%;
-  background-color: #090030;
+    border: none;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: #090030;
 }
 
 #resultadoc {
-  border: none;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-top: 5%;
-  background-color: #090030;
+    border: none;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: #090030;
 }
 
 #lista {
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-top: 10%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 10%;
 }
 
 #w {
-  color: rgb(255, 255, 255);
-  font-size: 150%;
-  text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 150%;
+    text-align: center;
 }
 
 #potencias {
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-top: 0%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 0%;
 }
 
+/* Estilos de botones */
 .boton4 {
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 0.5em 1.2em;
-  background: #090030;
-  border-radius: 20px;
-  border: none;
-  transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: #090030;
+    border-radius: 20px;
+    border: none;
+    transition: all 0.2s ease;
 }
 
 .boton4:hover {
-  color: rgba(255, 255, 255, 1) !important;
-  box-shadow: 0 4px 16px #090030;
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px #090030;
 }
 
 .boton1 {
-  margin-top: 20%;
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 0.5em 1.2em;
-  background: #090030;
-  border-radius: 20px;
-  border: 2px solid;
-  border-color: #090030;
-  position: relative;
+    margin-top: 20%;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: #090030;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: #090030;
+    position: relative;
 }
 
 .boton1:hover {
-  margin-top: 20%;
-  color: rgba(255, 255, 255, 1) !important;
-  box-shadow: 0 4px 16px #090030;
-  transition: all 0.2s ease;
+    margin-top: 20%;
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px #090030;
+    transition: all 0.2s ease;
 }
 
-/* Estilos para tooltips */
+/* Tooltips */
 .tooltip-inner {
-  background-color: #090030;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 14px;
-  max-width: 300px;
+    background-color: #090030;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    max-width: 300px;
 }
 
 .tooltip.bs-tooltip-top .arrow::before {
-  border-top-color: #090030;
+    border-top-color: #090030;
 }
 
-/* Estilo para el botón de borrar */
+/* Botón borrar */
 .boton4.borrar {
-  background-color: #dc3545;
+    background-color: #dc3545;
 }
 
 .boton4.borrar:hover {
-  box-shadow: 0 4px 16px #dc3545;
+    box-shadow: 0 4px 16px #dc3545;
+}
+
+/* Ajustes adicionales para móviles */
+@media (max-width: 576px) {
+    .separar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #titulo {
+        font-size: 180%;
+    }
+
+    .alert-info {
+        margin: 10px 15px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+    .separar {
+        gap: 20px;
+    }
 }
