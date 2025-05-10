@@ -503,7 +503,7 @@ function mostrarKitRecomendado() {
         return;
     }
   // --- NUEVO: caso consumo >8000 ---
-    if (consumo > 8000) {
+    if (consumo > 10000) {
         const textoWhats = encodeURIComponent(
             `Hola Estoy interesado en un kit para un consumo de (${consumo} W/día)`
         );
