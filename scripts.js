@@ -514,7 +514,7 @@ function mostrarKitRecomendado() {
             <div class="card-body">
               <h5 class="card-title">¡Muy alto consumo!</h5>
               <p class="card-text">
-                Tu consumo supera los 8 000 W/día. Por favor <strong>cotiza el dimensionamiento</strong> de tu sistema.
+                Tu consumo supera los 10 000 W/día. Por favor <strong>cotiza el dimensionamiento</strong> de tu sistema.
               </p>
               <a href="https://wa.me/${telefono}?text=${textoWhats}" target="_blank" class="btn btn-success">
                 Hablar por WhatsApp
