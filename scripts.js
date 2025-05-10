@@ -507,7 +507,7 @@ function mostrarKitRecomendado() {
         const textoWhats = encodeURIComponent(
             `Hola Estoy interesado en un kit para un consumo de (${consumo} W/día)`
         );
-        const telefono = "573147201255";
+        const telefono = "573175788877";
 
         contenedor.innerHTML = `
           <div class="card mx-auto shadow-lg kit-animado kit-grande" style="max-width:400px;">
