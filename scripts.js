@@ -46,7 +46,11 @@ function mostrarEquipos() {
     equiposGuardados.forEach(function(equipo, index) {
         var fila = document.createElement('tr');
         fila.innerHTML = `
-            <td>${equipo.equipo}</td>
+                 <td class="info-equipo">
+        <span class="equipo-nombre">${equipo.equipo}</span> 
+        <span class="info-detalle">| Cant.: ${equipo.cantidad}</span> 
+        <span class="info-detalle">| Consumo: ${(equipo.potencia * equipo.cantidad).toFixed(0)} W</span>
+    </td>
             <td><button class="eliminar-equipo btn btn-danger btn-sm">Eliminar</button></td>
         `;
         tablaCuerpo.appendChild(fila);
@@ -477,3 +481,66 @@ actualizarPotencia();
 actualizartiempo();
 habilitarInput();
 });
+// --- Coloca esto al final de tu scripts.js, reemplazando cualquier versión anterior de la función ---
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('mostrarKitBtn');
+    if (btn) btn.addEventListener('click', mostrarKitRecomendado);
+});
+
+function mostrarKitRecomendado() {
+    const consumoElem = document.getElementById('consumoTotal');
+    const contenedor = document.getElementById('kitRecomendado');
+    contenedor.innerHTML = '';  // limpia antes
+
+    if (!consumoElem) {
+        contenedor.innerHTML = `<p style="color:red;">No encuentro el elemento de consumo total.</p>`;
+        return;
+    }
+
+    const consumo = parseFloat(consumoElem.textContent);
+    if (isNaN(consumo) || consumo <= 0) {
+        contenedor.innerHTML = `<p style="color:red;">Primero debes agregar equipos válidos.</p>`;
+        return;
+    }
+
+    // Define tus kits aquí
+   // Dentro de mostrarKitRecomendado(), sustituye la declaración de `const kits = [...]` por:
+const kits = [
+    { potencia: 150,  nombre: "KIT 150W/DÍA PORTÁTIL",                imagen: "kit150.jpg",  descripcion: "Solución portátil de 150 W/día." },
+    { potencia: 350,  nombre: "KIT 350W/DÍA RESPALDO",                imagen: "kit350.jpg",  descripcion: "Respaldo básico de 350 W/día." },
+    { potencia: 750,  nombre: "KIT 750W/DÍA BÁSICO",                  imagen: "kit750.jpg",  descripcion: "Kit básico de 750 W/día." },
+    { potencia: 1000, nombre: "KIT 1000W/24A PLUS",                   imagen: "kit1000.jpg", descripcion: "Plus 24 A: 1000 W/día." },
+    { potencia: 2300, nombre: "KIT 2300W/DÍA CON CONEXIÓN A RED",      imagen: "kit2300.jpg", descripcion: "Conexión a red: 2300 W/día." },
+    { potencia: 3000, nombre: "KIT 3000W/DÍA PREMIUM",                imagen: "kit3000.jpg", descripcion: "Premium: 3000 W/día." },
+    { potencia: 8000, nombre: "KIT 8000W/DÍA CASA AUTÓNOMA PREMIUM",   imagen: "kit8000.jpg", descripcion: "Autónoma premium: 8000 W/día." }
+];
+
+
+    // Busca el primer kit cuya potencia cubra el consumo
+    const kit = kits.find(k => consumo <= k.potencia) || kits[kits.length - 1];
+
+    // Asigna clase de color
+    let claseColor = "kit-pequeño";
+    if (kit.potencia > 1000 && kit.potencia <= 1500) claseColor = "kit-mediano";
+    else if (kit.potencia > 1500) claseColor = "kit-grande";
+
+    // Construye el mensaje de WhatsApp
+    const textoWhats = encodeURIComponent(
+        `Hola Estoy interesado en este KIT (${kit.potencia}W)`
+    );
+    const telefono = "573175788877";
+
+    // Renderiza la card
+    contenedor.innerHTML = `
+        <div class="card mx-auto shadow-lg kit-animado ${claseColor}" style="max-width: 400px;">
+            <img src="${kit.imagen}" class="card-img-top" alt="${kit.nombre}">
+            <div class="card-body">
+                <h5 class="card-title">${kit.nombre}</h5>
+                <p class="card-text">${kit.descripcion}</p>
+                <a href="https://wa.me/${telefono}?text=${textoWhats}" target="_blank" class="btn btn-success">
+                    Hablar por WhatsApp
+                </a>
+            </div>
+        </div>
+    `;
+}
