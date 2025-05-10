@@ -502,7 +502,28 @@ function mostrarKitRecomendado() {
         contenedor.innerHTML = `<p style="color:red;">Primero debes agregar equipos válidos.</p>`;
         return;
     }
+  // --- NUEVO: caso consumo >8000 ---
+    if (consumo > 8000) {
+        const textoWhats = encodeURIComponent(
+            `Hola Estoy interesado en un kit para un consumo de (${consumo} W/día)`
+        );
+        const telefono = "573147201255";
 
+        contenedor.innerHTML = `
+          <div class="card mx-auto shadow-lg kit-animado kit-grande" style="max-width:400px;">
+            <div class="card-body">
+              <h5 class="card-title">¡Muy alto consumo!</h5>
+              <p class="card-text">
+                Tu consumo supera los 8 000 W/día. Por favor <strong>cotiza el dimensionamiento</strong> de tu sistema.
+              </p>
+              <a href="https://wa.me/${telefono}?text=${textoWhats}" target="_blank" class="btn btn-success">
+                Hablar por WhatsApp
+              </a>
+            </div>
+          </div>
+        `;
+        return;
+    }
     // Define tus kits aquí
    // Dentro de mostrarKitRecomendado(), sustituye la declaración de `const kits = [...]` por:
 const kits = [
