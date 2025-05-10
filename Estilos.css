@@ -343,3 +343,186 @@ footer a:hover {
         gap: 20px;
     }
 }
+/* === 1) Convertimos cada fila en flex (sin wrap) === */
+#tablaCuerpo tr {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: nowrap;      /* defecto: nada envuelve */
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px 0;
+  }
+  
+  /* === 2) Primera “celda”: toma todo el espacio restante === */
+  #tablaCuerpo td:first-child {
+    flex: 1 1 auto;
+    min-width: 0;           /* para que el flex-child pueda encogerse */
+    padding-right: 16px;    /* margen antes del botón */
+  }
+  
+  /* === 3) Segunda “celda” (botón): ancho automático, nunca invade texto === */
+  #tablaCuerpo td:nth-child(2) {
+    flex: 0 0 auto;
+    padding-left: 8px;
+  }
+  
+  /* === 4) Dentro de la 1ª celda mantenemos tu flex para nombre/detalles === */
+  .info-equipo {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;      /* cantidad y consumo SIEMPRE al lado */
+    gap: 10px;
+  }
+  
+  /* === 5) Nombre en su cajita: wrap interno, 150px fijos === */
+  .equipo-nombre {
+    flex: 0 0 110px;
+    font-weight: bold;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    white-space: normal;    /* deja bajar líneas dentro de esos 150px */
+  }
+  
+  /* === 6) Cantidad/Consumo: nunca saltan de línea === */
+  .info-detalle {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* === 7) Estilos zebra y hover === */
+  #tablaCuerpo tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  #tablaCuerpo tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* === 8) Responsive: en móviles muy estrechos, el botón baja abajo === */
+  @media (max-width: 480px) {
+    #tablaCuerpo tr {
+      flex-wrap: wrap;      /* permite que el botón salte línea */
+    }
+    #tablaCuerpo td:nth-child(2) {
+      flex: 0 0 100%;       /* botón ocupa fila completa */
+      margin-top: 8px;
+      text-align: left;
+      padding-left: 0;
+    }
+  }
+ 
+  
+
+
+
+  /* 1) Contenedor principal ocupa toda la pantalla y centra su contenido */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    /* centra vertical */
+    align-items: center;        /* centra horizontal */
+    min-height: 10vh;          /* ocupa toda la altura */
+    padding: 1rem;
+  }
+  
+  /* 2) Botón “Indicar Kit” dentro de .container */
+  .container > button {
+    background-color: #090030;        /* azul corporativo */
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 1.5rem;
+  }
+  
+  .container > button:hover {
+    background-color: #1c1c8a;
+    transform: translateY(-2px);
+  }
+  
+  .container > button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* 3) Contenedor de la card */
+  #kitRecomendado {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* 4) Estilos de la card inyectada */
+  #kitRecomendado .card {
+    background: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 0 auto;          /* centra horizontal */
+  }
+  
+  #kitRecomendado .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  }
+  
+  /* 5) Imagen y cuerpo de la card */
+  #kitRecomendado .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  #kitRecomendado .card .card-body {
+    padding: 1rem;
+  }
+  
+  #kitRecomendado .card-title {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    color: #090030;
+  }
+  
+  #kitRecomendado .card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  /* 6) Botón WhatsApp dentro de la card */
+  #kitRecomendado .btn-success {
+    background-color: #25d366;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  #kitRecomendado .btn-success:hover {
+    background-color: #1ebe5d;
+    transform: translateY(-1px);
+  }
+  
+  /* 7) Clases de color y animación */
+  .kit-pequeño { background: linear-gradient(to right, #d0f0c0, #b0e57c); }
+  .kit-mediano { background: linear-gradient(to right, #fef3bd, #ffd972); }
+  .kit-grande  { background: linear-gradient(to right, #f8c0c8, #ff9999); }
+  
+  .kit-animado {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
