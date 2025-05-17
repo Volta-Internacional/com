@@ -505,7 +505,7 @@ function mostrarKitRecomendado() {
   // --- NUEVO: caso consumo >8000 ---
     if (consumo > 10000) {
         const textoWhats = encodeURIComponent(
-            `Hola Estoy interesado en un kit para un consumo de (${consumo} W/día)`
+            `Hola, el simulador Volta me recomienda este Kit (${consumo} W/día) y quisiera ampliar la información para realizar la compra`
         );
         const telefono = "573175788877";
 
