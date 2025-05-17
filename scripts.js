@@ -547,7 +547,7 @@ const kits = [
 
     // Construye el mensaje de WhatsApp
     const textoWhats = encodeURIComponent(
-        `Hola Estoy interesado en este KIT (${kit.potencia}W)`
+       `Hola, el simulador Volta me recomienda este Kit (${consumo} W/día) y quisiera ampliar la información para realizar la compra`
     );
     const telefono = "573175788877";
 
