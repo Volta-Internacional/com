@@ -279,7 +279,7 @@ function actualizarPotencia() {
     var datosEquipo = {
         "licuadora": { "potenciaInput": "400", "tiempoInput": "1" },
         "lavadora semiautomatica": { "potenciaInput": "400", "tiempoInput": "2" },
-        "nevera mini bar (40L a 100L)": { "potenciaInput": "25" },
+        "nevera mi bar (40L a 100L)": { "potenciaInput": "25" },
         "nevera mini bar inverter (40L a 100L)": { "potenciaInput": "21" },
         "congelador pequeño inverter (5OL a 150L)": { "potenciaInput": "21" },
         "nevera pequeña (100L a 200L)": { "potenciaInput": "33" },
