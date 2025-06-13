@@ -521,7 +521,7 @@ function mostrarKitRecomendado() {
   // --- NUEVO: caso consumo >8000 ---
     if (consumo > 10000) {
         const textoWhats = encodeURIComponent(
-            `Hola, el simulador Volta me recomienda este Kit (${consumo} W/día) y quisiera ampliar la información para realizar la compra`
+            `Hola, el simulador Volta me recomienda este Kit ($${kit.potencia} W/día) y quisiera ampliar la información para realizar la compra`
         );
         const telefono = "573175788877";
 
@@ -563,7 +563,7 @@ const kits = [
 
     // Construye el mensaje de WhatsApp
     const textoWhats = encodeURIComponent(
-       `Hola, el simulador Volta me recomienda este Kit (${consumo} W/día) y quisiera ampliar la información para realizar la compra`
+       `Hola, el simulador Volta me recomienda este Kit (${kit.potencia} W/día) y quisiera ampliar la información para realizar la compra`
     );
     const telefono = "573175788877";
 
