@@ -697,18 +697,18 @@ footer a:hover {
 
 @media (max-width: 575.98px) {
   .col-sm-6 {
-    padding-left: 16px !important;
+    padding-left: 160px !important;
     padding-right: 16px !important;
   }
 
   .card {
-    margin-left: 0 !important;
+    margin-left: 30 !important;
     margin-right: 0 !important;
     border-radius: 20px;
   }
 
   body {
-    padding-left: 00;
+    padding-left: 30;
     padding-right: 0;
   }
 }
