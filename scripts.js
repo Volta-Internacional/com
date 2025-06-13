@@ -243,7 +243,7 @@ function cambiarOpciones() {
     var opciones = [];
     switch (categoriaSeleccionada) {
         case "Neveras y Congeladores":
-            opciones = ["Seleccionar","nevera mini bar (40L a 100L)", "nevera mini bar inverter (40L a 100L)", "nevera pequeña (100L a 200L)", "nevera pequeña inverter (100L a 200L)", "nevera mediana (200L a 300L)", "nevera mediana inverter (200L a 300L)", "nevera grande (300L +)", "nevera grande inverter (300L +)", "congelador pequeño (50L a 150L)", "congelador pequeño inverter (5OL a 150L)", "congelador mediano (150L a 250L)", "congelador mediano inverter (150L a 250L)", "congelador grande (250L +)", "congelador grande inverter (250L +)", "nevera comercial pequeña (200L a 500L)", "nevera comercial grande (500L +)"];
+            opciones = ["Seleccionar","nevera mini bar (40L a 100L)", "nevera mini bar inverter (40L a 100L)", "nevera pequeña (100L a 200L)", "nevera pequeña inverter (100L a 200L)", "nevera mediana (200L a 300L)", "nevera mediana inverter (200L a 300L)", "nevera grande (300L +)", "nevera grande inverter (300L +)", "congelador pequeño (50L a 150L)", "congelador pequeño inverter (50L a 150L)", "congelador mediano (150L a 250L)", "congelador mediano inverter (150L a 250L)", "congelador grande (250L +)", "congelador grande inverter (250L +)", "nevera comercial pequeña (200L a 500L)", "nevera comercial grande (500L +)"];
             break;
         case "Telefonia e Internet":
             opciones = ["Seleccionar","celular", "router wifi", "antena wifi satelital"];
