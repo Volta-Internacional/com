@@ -45,14 +45,26 @@ function mostrarEquipos() {
 
     equiposGuardados.forEach(function(equipo, index) {
         var fila = document.createElement('tr');
-        fila.innerHTML = `
-                 <td class="info-equipo">
-        <span class="equipo-nombre">${equipo.equipo}</span> 
-        <span class="info-detalle">| Cant.: ${equipo.cantidad}</span> 
-        <span class="info-detalle">| Consumo: ${(equipo.potencia * equipo.cantidad).toFixed(0)} W</span>
-    </td>
-            <td><button class="eliminar-equipo btn btn-danger btn-sm">Eliminar</button></td>
-        `;
+      fila.innerHTML = `
+  <td colspan="2">
+    <div class="equipo-card-bloque d-flex justify-content-between align-items-start px-3 py-2">
+      <div class="info-bloque">
+        <div class="equipo-nombre fw-bold">${equipo.equipo}</div>
+        <div class="text-muted detalles">
+          | Cant.: ${equipo.cantidad} &nbsp;| Consumo: ${(equipo.potencia * equipo.cantidad).toFixed(0)}W &nbsp;| Horas: ${equipo.tiempo}
+        </div>
+      </div>
+      <button class="btn btn-danger btn-sm eliminar-equipo mt-2">Eliminar</button>
+    </div>
+  </td>
+`;
+
+
+
+
+
+
+
         tablaCuerpo.appendChild(fila);
 
         // Agregar evento al botón de eliminar

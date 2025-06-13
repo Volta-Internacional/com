@@ -244,8 +244,8 @@ footer a:hover {
 }
 
 #lista {
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-right: 2%;
+    margin-left: 2%;
     margin-top: 10%;
 }
 
@@ -526,3 +526,171 @@ footer a:hover {
     100% { opacity: 1; transform: translateY(0); }
   }
   
+
+.card-equipo {
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card-equipo:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.equipo-nombre-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #090030;
+}
+
+.detalles-equipo {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* Tamaño fijo para cada card de equipo */
+.card-equipo-fixed {
+  width: 100%;
+  max-width: 900px;
+  height: 90px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.card-equipo-fixed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.equipo-nombre-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #090030;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detalles-equipo {
+  font-size: 0.85rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+#contenedor-lista {
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgb(109, 109, 109);
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 10%;
+  background-color: #ffffff;
+  max-height: 500px;
+}
+
+#scroll-lista {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Scroll moderno */
+#scroll-lista::-webkit-scrollbar {
+  width: 6px;
+}
+
+#scroll-lista::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#scroll-lista::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 10px;
+}
+
+#scroll-lista:hover::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+#lista::-webkit-scrollbar {
+  width: 6px;
+}
+
+#lista::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#lista::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 10px;
+}
+
+#lista:hover::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+.equipo-card-linea-fixed {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 10px;
+  overflow: hidden;
+  min-height: 60px;
+}
+
+.info-linea {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.equipo-nombre {
+  color: #090030;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.equipo-card-bloque {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+  min-height: 80px;
+}
+
+.info-bloque {
+  flex: 1;
+  overflow: hidden;
+}
+
+.equipo-nombre {
+  font-size: 1rem;
+  color: #090030;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.detalles {
+  font-size: 0.9rem;
+  color: #444;
+}
