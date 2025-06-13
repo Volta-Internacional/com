@@ -521,7 +521,7 @@ function mostrarKitRecomendado() {
   // --- NUEVO: caso consumo >8000 ---
     if (consumo > 10000) {
         const textoWhats = encodeURIComponent(
-            `Hola, el simulador Volta me recomienda este Kit ($${kit.potencia} W/día) y quisiera ampliar la información para realizar la compra`
+            `Hola, el simulador Volta me recomienda este Kit (${kit.potencia}W/día) y quisiera ampliar la información para realizar la compra`
         );
         const telefono = "573175788877";
 
@@ -547,8 +547,12 @@ const kits = [
     { potencia: 350,  nombre: "KIT 350W/DÍA RESPALDO",                imagen: "kit350.jpg",  descripcion: "Respaldo básico de 350 W/día." },
     { potencia: 750,  nombre: "KIT 750W/DÍA BÁSICO",                  imagen: "kit750.jpg",  descripcion: "Kit básico de 750 W/día." },
     { potencia: 1000, nombre: "KIT 1000W/24A PLUS",                   imagen: "kit1000.jpg", descripcion: "Plus 24 A: 1000 W/día." },
-    { potencia: 2300, nombre: "KIT 2300W/DÍA CON CONEXIÓN A RED",      imagen: "kit2300.jpg", descripcion: "Conexión a red: 2300 W/día." },
+    { potencia: 1600, nombre: "KIT 1600W/DÍA VOLTABOX CORE",          imagen: "kit1600.jpg", descripcion: "Voltabox core: 1600 W/día." },
+    { potencia: 2300, nombre: "KIT 2300W/DÍA CON CONEXIÓN A RED",     imagen: "kit2300.jpg", descripcion: "Conexión a red: 2300 W/día." },
     { potencia: 3000, nombre: "KIT 3000W/DÍA PREMIUM",                imagen: "kit3000.jpg", descripcion: "Premium: 3000 W/día." },
+    { potencia: 4000, nombre: "KIT 4000W/DÍA SÚPER PREMIUM",          imagen: "kit4000.jpg", descripcion: "Súper premium: 4000 W/día." },
+    { potencia: 5000, nombre: "KIT 5000W/DÍA CASA BÀSICA",            imagen: "kit5000.jpg", descripcion: "Casa básica: 5000 W/día." },
+    { potencia: 6000, nombre: "KIT 6000W/DÍA CASA AUTÓNOMA",          imagen: "kit6000.jpg", descripcion: "Casa autónoma: 6000 W/día." },
     { potencia: 8000, nombre: "KIT 8000W/DÍA CASA AUTÓNOMA PREMIUM",   imagen: "kit8000.jpg", descripcion: "Autónoma premium: 8000 W/día." }
 ];
 
