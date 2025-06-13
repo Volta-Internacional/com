@@ -695,15 +695,20 @@ footer a:hover {
   color: #444;
 }
 
-/* Solo en móvil (<576px) se aplica espaciado interno lateral */
 @media (max-width: 575.98px) {
-  .container {
-    padding-left: 15px;
-    padding-right: 15px;
+  .col-sm-6 {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
   .card {
     margin-left: 0 !important;
     margin-right: 0 !important;
+    border-radius: 20px;
+  }
+
+  body {
+    padding-left: 00;
+    padding-right: 0;
   }
 }
