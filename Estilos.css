@@ -20,6 +20,9 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+.alerta-separada {
+    margin-top: 60px; /* ajusta según lo que necesites */
+}
 
 #logoVolta {
     max-width: 400px;
