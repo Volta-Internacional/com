@@ -21,6 +21,19 @@ footer a:hover {
     text-decoration: underline;
 }
 
+#encabezado img {
+    max-width: 150px;
+    height: auto;
+}
+
+#encabezado h1 {
+    font-size: 2rem;
+    color: #090030;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
 /* Estilo para los iconos de interrogación */
 .fa-question-circle {
     color: #090030;
