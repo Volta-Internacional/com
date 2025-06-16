@@ -22,7 +22,7 @@ footer a:hover {
 }
 
 #logoVolta {
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
     height: auto;
     display: block;
@@ -30,7 +30,7 @@ footer a:hover {
 }
 
 #encabezado h1 {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     color: #090030;
     font-weight: bold;
 }
@@ -58,7 +58,7 @@ footer a:hover {
     background-color: #f8f9fa;
     border: 1px solid #090030;
     color: #090030;
-    margin: 20px auto;
+    margin: 50px auto;
     max-width: 90%;
 }
 
