@@ -21,17 +21,20 @@ footer a:hover {
     text-decoration: underline;
 }
 
-#encabezado img {
-    max-width: 350px;
+#logoVolta {
+    max-width: 300px;
+    width: 100%;
     height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 #encabezado h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #090030;
     font-weight: bold;
-    margin-top: 20px;
 }
+
 
 
 /* Estilo para los iconos de interrogación */
