@@ -452,10 +452,12 @@ function habilitarInput() {
         
         // Consideramos el caso específico de equipos que requieren multiplicar la potencia por 2
         if (equipoSelect.value === "ventilador de mesa" ||
+            categoriaSelect.value === "Electrobombas" ||
+
             equipoSelect.value === "ventilador de pedestal" ||
             equipoSelect.value === "lavadora semiautomatica" ||
             equipoSelect.value === "lavadora automatica") {
-            picoInput.value = parseFloat(potenciaInput.value) * 2;
+            picoInput.value = parseFloat(potenciaInput.value) * 3;
         }
     }
 }
